@@ -1,0 +1,5 @@
+# Reglas de R8 del proyecto. AGP combina todos los *.keep de src/main/keepRules.
+# https://d.android.com/r/tools/r8/keep-rules
+#
+# Hoy vacio a proposito: Hilt, Room, Navigation 3 y kotlinx.serialization publican sus propias reglas
+# dentro de sus AAR (consumer rules). Añadir aqui solo lo que un build de release demuestre que falta.

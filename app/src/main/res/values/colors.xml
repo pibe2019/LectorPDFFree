@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Misma marca que ui/theme/Color.kt (BrandIndigo); aqui para icono y splash, que se pintan antes que Compose. -->
+    <color name="brand_indigo">#FF3755C3</color>
+</resources>

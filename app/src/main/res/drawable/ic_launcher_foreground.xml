@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hoja con esquina doblada y tres renglones, dentro de la zona segura (66dp centrales) del icono adaptativo. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M36,28H61L72,39V80H36Z" />
+    <path
+        android:fillColor="#C9D2F5"
+        android:pathData="M61,28V39H72Z" />
+    <path
+        android:fillColor="@color/brand_indigo"
+        android:pathData="M42,50h24v3.5h-24zM42,58h24v3.5h-24zM42,66h16v3.5h-16z" />
+</vector>

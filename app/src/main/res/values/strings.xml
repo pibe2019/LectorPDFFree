@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">MyPDFFree</string>
+
+    <!-- Acciones comunes -->
+    <string name="action_back">Volver</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="action_clear">Borrar</string>
+    <string name="action_go">Ir</string>
+
+    <!-- Home -->
+    <string name="home_open_pdf">Abrir PDF</string>
+    <string name="home_empty_title">Aún no has abierto ningún PDF</string>
+    <string name="home_empty_message">Elige un documento de tu teléfono o ábrelo desde otra app con «Abrir con MyPDFFree». Aparecerá aquí para retomarlo donde lo dejaste.</string>
+    <string name="home_recent_page_of">Página %1$d de %2$d</string>
+    <string name="home_remove_from_recents">Quitar de recientes</string>
+    <string name="home_recent_removed">Quitado de recientes</string>
+    <string name="home_clear_history">Borrar historial</string>
+    <string name="home_clear_history_title">¿Borrar el historial?</string>
+    <string name="home_clear_history_message">Se quitarán todos los documentos de la lista. Los archivos no se borran de tu teléfono.</string>
+    <string name="home_history_cleared">Historial borrado</string>
+
+    <!-- Lector -->
+    <string name="reader_error_title">No se pudo abrir el PDF</string>
+    <string name="reader_page_indicator">%1$d / %2$d</string>
+    <string name="reader_go_to_page">Ir a página…</string>
+    <string name="reader_go_to_page_label">Número de página (1–%1$d)</string>
+
+    <!-- Accesibilidad (contentDescription) -->
+    <string name="cd_more_options">Más opciones</string>
+    <string name="cd_open_document">abrir documento</string>
+    <string name="cd_document_options">Opciones de %1$s</string>
+    <string name="cd_page_of">Página %1$d de %2$d</string>
+    <string name="cd_page_indicator">Página %1$d de %2$d. Toca para ir a otra página</string>
+
+    <!-- Errores -->
+    <string name="error_unknown">Ocurrió un error inesperado. Inténtalo de nuevo.</string>
+    <string name="error_pdf_not_found">El archivo ya no existe. Puede que se haya movido o borrado.</string>
+    <string name="error_pdf_access_denied">MyPDFFree ya no tiene permiso para leer este archivo. Ábrelo de nuevo desde «Abrir PDF».</string>
+    <string name="error_pdf_password_protected">Este PDF está protegido con contraseña y todavía no se puede abrir.</string>
+    <string name="error_pdf_corrupted">El archivo no es un PDF válido o está dañado.</string>
+    <string name="error_pdf_render_failed">No se pudo mostrar esta página.</string>
+    <string name="error_local_storage">No se pudo guardar el historial.</string>
+    <string name="error_picker_unavailable">Tu dispositivo no tiene un selector de archivos disponible.</string>
+
+    <!-- Validaciones -->
+    <string name="validation_page_empty">Escribe un número de página</string>
+    <string name="validation_page_not_a_number">Solo se admiten números</string>
+    <string name="validation_page_out_of_range">Elige una página entre 1 y %1$d</string>
+</resources>

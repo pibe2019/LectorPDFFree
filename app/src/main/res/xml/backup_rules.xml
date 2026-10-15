@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copia de seguridad en Android 8 a 11 (en 12+ manda data_extraction_rules.xml).
+    Se EXCLUYE el historial: guarda URIs de documentos cuyo permiso de lectura no viaja a otro
+    dispositivo. Restaurado en un movil nuevo, cada entrada fallaria al tocarla.
+-->
+<full-backup-content>
+    <exclude domain="database" path="my_pdf_free.db" />
+    <exclude domain="database" path="my_pdf_free.db-shm" />
+    <exclude domain="database" path="my_pdf_free.db-wal" />
+</full-backup-content>

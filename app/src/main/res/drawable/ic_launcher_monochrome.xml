@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Version de un solo color para los iconos tematicos (Android 13+). El sistema la tiñe usando solo el
+    canal alfa, asi que los renglones se recortan como huecos (evenOdd) en vez de pintarse de otro color.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M36,28H61L72,39V80H36ZM42,50h24v3.5h-24zM42,58h24v3.5h-24zM42,66h16v3.5h-16z" />
+</vector>
