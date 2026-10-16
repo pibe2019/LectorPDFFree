@@ -1,0 +1,72 @@
+name: Android CI
+
+on:
+  push:
+    branches:
+    - "main"      # valida cuando llega codigo a main (post - merge)
+    - "develop"   # integracion: cada historio mergueada
+    paths-ignore:
+      - "docs/**"
+      - "**.md"   # CLAUDE.md README y cualquier markdow en el repo
+      - ".gitignore"
+      - "LICENSE"
+  pull_request:
+    branches: ["main","develop"]  # valida antes de merguear
+    paths-ignore:
+      - "docs/**"
+      - "**.md"
+      - ".gitignore"
+      - "LICENSE"
+
+# un push nuevo a la misma rama cancela el run anterior: no se acumulan
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }} # agrupa las ejecuciones por nombre de flujo de trabajo y rama actual(github.ref)
+  cancel-in-progress: true
+
+#Minimo privilegio: solo lee el repositorio
+permissions:
+  contents: read
+
+jobs:
+  #--------------------------------------------------------------------------------
+  # JOB 1 — compila, lint, tests unitarios, release con R8.  ~3-5 min en caliente
+  #--------------------------------------------------------------------------------
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: JDK 21 (toolchain de compilacion y daemon de gradle)
+        uses: actions/setup-java@v6
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
+        with:  # por defecto solo main escribe la cache
+          cache-read-only: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/develop' }}
+
+      - name: permiso de ejecucion del wrapper
+        run: chmod +x gradlew
+
+      # una sola invocacion: lint y test primero(fallo rapido), luego debug y relase(R8)
+      - name: Lint + Test Unitarios + assembleDebug + assembleRelease --stacktrace
+        run: ./gradlew lintDebug testDebugUnitTest assembleDebug assembleRelease --stacktrace
+
+      - name: Publicar reporte de lint
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: lint-report
+          path: app/build/reports/lint-results-debug.html
+
+      - name: Publicar reporte de test
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: test-unitarios-report
+          path: app/build/reports/tests/testDebugUnitTest/
